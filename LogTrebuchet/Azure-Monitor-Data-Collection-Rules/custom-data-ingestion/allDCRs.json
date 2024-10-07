@@ -33,7 +33,9 @@
         "customDCRsTemplates": "[concat(variables('artifactsBlacksmith'), 'templates/azure/Azure-Monitor-Data-Collection-Rules/custom-data-ingestion/')]",
         "windowsEventDCRTemplate": "[uri(variables('customDCRsTemplates'), 'WindowsEvent.json')]",
         "securityEventDCRTemplate": "[uri(variables('customDCRsTemplates'), 'SecurityEvent.json')]",
-        "syslogDCRTemplate": "[uri(variables('customDCRsTemplates'), 'Syslog.json')]"
+        "syslogDCRTemplate": "[uri(variables('customDCRsTemplates'), 'Syslog.json')]",
+        "azureActivityDCRTemplate": "[uri(variables('customDCRsTemplates'), 'AzureActivity.json')]"
+
     },
     "resources": [
         {
@@ -107,6 +109,30 @@
                     }
                 }
             }
+        },
+        {
+            "condition": "[contains(parameters('targetTables'),'AzureActivity')]",
+            "name": "AzureActivityDCR",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2021-04-01",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('syslogDCRTemplate')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                     "workspaceResourceId": {
+                        "value": "[parameters('workspaceResourceId')]"
+                    },
+                    "dataCollectionEndpointResourceId": {
+                        "value": "[parameters('dataCollectionEndpointResourceId')]"
+                    },
+                    "location": {
+                        "value": "[parameters('location')]"
+                    }
+                }
+            }
         }
     ],
     "outputs": {
@@ -122,12 +148,17 @@
             "type": "string",
             "value": "[reference('SyslogEventDCR').outputs.immutableId.value]"
         },
+        "azureActivityDCRImmutableId" : {
+            "type": "string",
+            "value": "[reference('AzureActivityDCR').outputs.immutableId.value]"
+        },
         "allDCRImmutableIds": {
             "type": "array",
             "value": [
                 "[reference('WindowsEventDCR').outputs.immutableId.value]",
                 "[reference('SecurityEventDCR').outputs.immutableId.value]",
-                "[reference('SyslogEventDCR').outputs.immutableId.value]"
+                "[reference('SyslogEventDCR').outputs.immutableId.value]",
+                "[reference('AzureActivityDCR').outputs.immutableId.value]"
             ]
         },
         "allDCRIds": {
@@ -135,7 +166,8 @@
             "value": [
                 "[reference('WindowsEventDCR').outputs.dataCollectionRuleId.value]",
                 "[reference('SecurityEventDCR').outputs.dataCollectionRuleId.value]",
-                "[reference('SyslogEventDCR').outputs.dataCollectionRuleId.value]"
+                "[reference('SyslogEventDCR').outputs.dataCollectionRuleId.value]",
+                "[reference('AzureActivityDCR').outputs.dataCollectionRuleId.value]"
             ]
         }
     }
