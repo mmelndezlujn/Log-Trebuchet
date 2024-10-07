@@ -96,7 +96,6 @@
     },
     "variables": {
         "artifactsBlacksmith": "https://raw.githubusercontent.com/OTRF/Blacksmith/master/",
-        "artifactsManny" : "https://raw.githubusercontent.com/Log-Trebuchet/",
         "artifactsMicrosoftSentinel2Go": "https://raw.githubusercontent.com/OTRF/Microsoft-Sentinel2Go/master/",
         "funcAppIdentity" : "mssentinellogshipper",
         "roleGuidOne" : "[guid(parameters('roleGuid'), 'guidOne')]",
@@ -179,7 +178,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "https://raw.githubusercontent.com/mmelndezlujn/Log-Trebuchet/refs/heads/main/LogTrebuchet/Azure-Monitor-Data-Collection-Rules/azuredeploy.json",
+                    "uri": "https://dev.azure.com/RnDIncubator/MSecR%20SimuLand/_git/MannyTests?path=/LogTrebuchet/Azure-Monitor-Data-Collection-Rules/azuredeploy.json",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -202,7 +201,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[uri(variables('artifactsBlacksmith'),'templates/azure/Azure-Monitor-Data-Collection-Rules/custom-data-ingestion/allDCRs.json')]",
+                    "uri": "https://raw.githubusercontent.com/mmelndezlujn/Log-Trebuchet/refs/heads/main/LogTrebuchet/Azure-Monitor-Data-Collection-Rules/custom-data-ingestion/allDCRs.json",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
