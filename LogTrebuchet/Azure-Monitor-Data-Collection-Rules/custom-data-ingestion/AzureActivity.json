@@ -1,0 +1,128 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "ruleName": {
+            "type": "String",
+            "metadata": {
+                "description": "Specifies the name of the data collection rule to create."
+            },
+            "defaultValue": "[concat('AzureActivityDCR-', uniquestring(subscription().subscriptionId, resourceGroup().id, deployment().name))]"
+        },
+        "tagsArray": {
+            "type": "Object",
+            "defaultValue": {}
+        },
+        "workspaceResourceId": {
+            "type": "string",
+            "metadata": {
+                "description": "Specifies the Azure resource ID of the Log Analytics workspace to use to send data to."
+            }
+        },
+        "dataCollectionEndpointResourceId": {
+            "type": "string",
+            "metadata": {
+                "description": "Specifies the Azure resource ID of the Data Collection Endpoint to use."
+            }
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "Location for all resources."
+            }
+        }
+    },
+    "resources": [
+        {
+            "type": "microsoft.insights/dataCollectionRules",
+            "apiVersion": "2021-09-01-preview",
+            "name": "[parameters('ruleName')]",
+            "location": "[parameters('location')]",
+            "tags": "[parameters('tagsArray')]",
+            "properties": {
+                "dataCollectionEndpointId": "[parameters('dataCollectionEndpointResourceId')]",
+                "streamDeclarations": {
+                    "Custom-Syslog": {
+                        "columns": [
+                            {
+                                "name": "ResourceId",
+                                "description": "The resource ID of the Azure resource that generated the event.",
+                                "type": "string"
+                            },
+                            {
+                                "name": "EventTimestamp",
+                                "description": "The timestamp of the event.",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "EventName",
+                                "description": "The name of the event.",
+                                "type": "string"
+                            },
+                            {
+                                "name": "Category",
+                                "description": "The category of the event.",
+                                "type": "string"
+                            },
+                            {
+                                "name": "OperationName",
+                                "description": "The operation that triggered the event.",
+                                "type": "string"
+                            },
+                            {
+                                "name": "Caller",
+                                "description": "The identity of the caller that triggered the event.",
+                                "type": "string"
+                            },
+                            {
+                                "name": "CorrelationId",
+                                "description": "The correlation ID for the event.",
+                                "type": "string"
+                            },
+                            {
+                                "name": "Status",
+                                "description": "The status of the operation.",
+                                "type": "string"
+                            },
+                            {
+                                "name": "Type",
+                                "description": "The name of the table.",
+                                "type": "string"
+                            }
+                        ]
+                    }
+                },
+                "destinations": {
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "[parameters('workspaceResourceId')]",
+                            "name": "clv2ws1"
+                        }
+                    ]
+                },
+                "dataFlows": [
+                    {
+                        "streams": [
+                            "Custom-AzureActivity"
+                        ],
+                        "destinations": [
+                            "clv2ws1"
+                        ],
+                        "outputStream": "Microsoft-AzureActivity"
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {
+        "dataCollectionRuleId": {
+            "type": "String",
+            "value": "[resourceId('microsoft.insights/dataCollectionRules', parameters('ruleName'))]"
+        },
+        "immutableId": {
+            "type": "String",
+            "value": "[reference(resourceId('Microsoft.Insights/dataCollectionRules', parameters('ruleName'))).immutableId]"
+        }
+    }
+}

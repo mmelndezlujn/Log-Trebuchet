@@ -1,0 +1,140 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name for the Log Analytics workspace used to aggregate data"
+            }
+        },
+        "enableLAFunctions": {
+            "type": "array",
+            "metadata": {
+                "description": "List of functions to enable in your Log Analytics Workspace. Available: ASimWindowsEvents,ASimWindowsSysmon,ASimLinuxSysmon,WinRPCFWLogs"
+            },
+            "defaultValue": []
+        },
+        "location": {
+            "type": "string",
+            "metadata": {
+                "description": "Location for all resources."
+            },
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "variables": {
+        "asimWindowsEventsParserPackTemplate": "https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Parsers/ASim%20WindowsEvent/ARM/MicrosoftWindowsEventFullDeployment.json",
+        "asimWindowsSysmonParserPackTemplate": "https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Parsers/ASim%20Sysmon%20for%20Windows/SysmonFullDeployment.json",
+        "asimLinuxSysmonParserPackTemplate": "https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Parsers/ASim%20Sysmon%20for%20Linux/SysmonForLinuxFullDeployment.json",
+        "winRPCFWLogsParserPackTemplate": "https://raw.githubusercontent.com/OTRF/Microsoft-Sentinel2Go/master/microsoft-sentinel/linkedtemplates/parsers/winRPCFWLogs.json",
+        "winLDAPFWLogsParserPackTemplate": "https://raw.githubusercontent.com/OTRF/Microsoft-Sentinel2Go/master/microsoft-sentinel/linkedtemplates/parsers/winLDAPFWLogs.json"
+    },
+    "resources": [
+        {
+            "condition": "[contains(parameters('enableLAFunctions'),'ASimWindowsEvents')]",
+            "name": "deployASimWindowsEventsParser",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-10-01",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('asimWindowsEventsParserPackTemplate')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "workspaceName": {
+                        "value": "[parameters('workspaceName')]"
+                    },
+                    "location": {
+                        "value": "[parameters('location')]"
+                    }
+                }
+            }
+        },
+        {
+            "condition": "[contains(parameters('enableLAFunctions'),'ASimWindowsSysmon')]",
+            "name": "deployASimWindowsSysmonParser",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-10-01",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('asimWindowsSysmonParserPackTemplate')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "workspaceName": {
+                        "value": "[parameters('workspaceName')]"
+                    },
+                    "location": {
+                        "value": "[parameters('location')]"
+                    }
+                }
+            }
+        },
+        {
+            "condition": "[contains(parameters('enableLAFunctions'),'ASimLinuxSysmon')]",
+            "name": "deployASimLinuxSysmonParser",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-10-01",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('asimLinuxSysmonParserPackTemplate')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "workspaceName": {
+                        "value": "[parameters('workspaceName')]"
+                    },
+                    "location": {
+                        "value": "[parameters('location')]"
+                    }
+                }
+            }
+        },
+        {
+            "condition": "[contains(parameters('enableLAFunctions'),'WinRPCFWLogs')]",
+            "name": "deployWinRPCFWLogsParserPack",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-10-01",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('winRPCFWLogsParserPackTemplate')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "workspaceName": {
+                        "value": "[parameters('workspaceName')]"
+                    },
+                    "location": {
+                        "value": "[parameters('location')]"
+                    }
+                }
+            }
+        },
+        {
+            "condition": "[contains(parameters('enableLAFunctions'),'WinLDAPFWLogs')]",
+            "name": "deployWinLDAPFWLogsParserPack",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-10-01",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('winLDAPFWLogsParserPackTemplate')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "workspaceName": {
+                        "value": "[parameters('workspaceName')]"
+                    },
+                    "location": {
+                        "value": "[parameters('location')]"
+                    }
+                }
+            }
+        }
+    ]
+}
