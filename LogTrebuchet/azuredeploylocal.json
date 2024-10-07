@@ -178,7 +178,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "https://dev.azure.com/RnDIncubator/MSecR%20SimuLand/_git/MannyTests?path=/LogTrebuchet/Azure-Monitor-Data-Collection-Rules/azuredeploy.json",
+                    "uri": "[uri(variables('artifactsBlacksmith'),'templates/azure/Azure-Monitor-Data-Collection-Endpoint/azuredeploy.json')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
