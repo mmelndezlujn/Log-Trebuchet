@@ -96,7 +96,7 @@
     },
     "variables": {
         "artifactsBlacksmith": "https://raw.githubusercontent.com/OTRF/Blacksmith/master/",
-        "artifactsManny" : "https://raw.githubusercontent.com/Log-Trebuchet/master/",
+        "artifactsManny" : "https://raw.githubusercontent.com/Log-Trebuchet/",
         "artifactsMicrosoftSentinel2Go": "https://raw.githubusercontent.com/OTRF/Microsoft-Sentinel2Go/master/",
         "funcAppIdentity" : "mssentinellogshipper",
         "roleGuidOne" : "[guid(parameters('roleGuid'), 'guidOne')]",
