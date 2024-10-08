@@ -110,7 +110,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "https://raw.githubusercontent.com/mmelndezlujn/Log-Trebuchet/refs/heads/main/LogTrebuchet/microsoft-sentinel/azuredeploy.json",
+                    "uri": "[uri(variables('artifactsMicrosoftSentinel2Go'),'microsoft-sentinel/azuredeploy.json')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -178,7 +178,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "https://raw.githubusercontent.com/mmelndezlujn/Log-Trebuchet/refs/heads/main/LogTrebuchet/Azure-Monitor-Data-Collection-Rules/azuredeploy.json",
+                    "uri": "[uri(variables('artifactsBlacksmith'),'templates/azure/Azure-Monitor-Data-Collection-Endpoint/azuredeploy.json')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -201,7 +201,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "https://raw.githubusercontent.com/mmelndezlujn/Log-Trebuchet/refs/heads/main/LogTrebuchet/Azure-Monitor-Data-Collection-Rules/custom-data-ingestion/allDCRs.json",
+                    "uri": "[uri(variables('artifactsBlacksmith'),'templates/azure/Azure-Monitor-Data-Collection-Rules/custom-data-ingestion/allDCRs.json')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -209,8 +209,8 @@
                         "value": [
                             "WindowsEvent",
                             "SecurityEvent",
-                            "Syslog",
-                            "AzureActivity"
+                            "SignInLogs",
+                            "Syslog"
                         ]
                     },
                     "workspaceResourceId": {

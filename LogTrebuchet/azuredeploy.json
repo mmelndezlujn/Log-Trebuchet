@@ -209,7 +209,6 @@
                         "value": [
                             "WindowsEvent",
                             "SecurityEvent",
-                            "SignInLogs",
                             "Syslog"
                         ]
                     },
