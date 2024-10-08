@@ -109,7 +109,7 @@
                         "destinations": [
                             "clv2ws1"
                         ],
-                        "outputStream": "Microsoft-AzureActivity"
+                        "outputStream": "Microsoft-WindowsEvent"
                     }
                 ]
             }
