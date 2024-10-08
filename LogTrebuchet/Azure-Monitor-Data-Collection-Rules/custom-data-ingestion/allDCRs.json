@@ -118,7 +118,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[variables('syslogDCRTemplate')]",
+                    "uri": "[variables('azureActivityDCRTemplate')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
