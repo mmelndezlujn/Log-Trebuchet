@@ -34,8 +34,7 @@
         "windowsEventDCRTemplate": "[uri(variables('customDCRsTemplates'), 'WindowsEvent.json')]",
         "securityEventDCRTemplate": "[uri(variables('customDCRsTemplates'), 'SecurityEvent.json')]",
         "syslogDCRTemplate": "[uri(variables('customDCRsTemplates'), 'Syslog.json')]",
-        "azureActivityDCRTemplate": "[uri(variables('customDCRsTemplates'), 'SigninLogs.json')]"
-
+        "azureActivityDCRTemplate": "[uri(variables('customDCRsTemplates'), 'AzureActivity.json')]"
     },
     "resources": [
         {
