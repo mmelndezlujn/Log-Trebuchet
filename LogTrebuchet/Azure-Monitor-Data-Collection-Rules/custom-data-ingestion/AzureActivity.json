@@ -43,7 +43,7 @@
             "properties": {
                 "dataCollectionEndpointId": "[parameters('dataCollectionEndpointResourceId')]",
                 "streamDeclarations": {
-                    "Custom-Syslog": {
+                    "Custom-AzureActivity": {
                         "columns": [
                             {
                                 "name": "ResourceId",
