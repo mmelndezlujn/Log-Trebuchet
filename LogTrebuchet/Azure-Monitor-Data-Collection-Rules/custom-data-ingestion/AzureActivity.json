@@ -46,48 +46,68 @@
                     "Custom-AzureActivity": {
                         "columns": [
                             {
-                                "name": "ResourceId",
-                                "description": "The resource ID of the Azure resource that generated the event.",
+                                "name": "Channel",
+                                "description": "Event log channel",
                                 "type": "string"
                             },
                             {
-                                "name": "EventTimestamp",
-                                "description": "The timestamp of the event.",
+                                "name": "Computer",
+                                "description": "Name of endpoint where event was originated",
+                                "type": "string"
+                            },
+                            {
+                                "name": "EventData",
+                                "description": "Contains the event data parsed to dynamic type. If the parsing fails then this field will contain null and the RawEventData field will be populated.",
+                                "type": "string"
+                            },
+                            {
+                                "name": "EventID",
+                                "description": "ID of event",
+                                "type": "int"
+                            },
+                            {
+                                "name": "EventLevel",
+                                "description": "level of event.",
+                                "type": "int"
+                            },
+                            {
+                                "name": "EventLevelName",
+                                "description": "Name of event level",
+                                "type": "string"
+                            },
+                            {
+                                "name": "EventOriginId",
+                                "description": "The unique ID of the original event",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ManagementGroupName",
+                                "decription": "Management group name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "Provider",
+                                "decription": "Event provider",
+                                "type": "string"
+                            },
+                            {
+                                "name": "RawEventData",
+                                "description": "The raw event XML when parsing fails. It's null when parsing successful.",
+                                "type": "string"
+                            },
+                            {
+                                "name": "Task",
+                                "description": "Event task name",
+                                "type": "int"
+                            },
+                            {
+                                "name": "TimeGenerated",
+                                "description": "Time event was generated",
                                 "type": "datetime"
                             },
                             {
-                                "name": "EventName",
-                                "description": "The name of the event.",
-                                "type": "string"
-                            },
-                            {
-                                "name": "Category",
-                                "description": "The category of the event.",
-                                "type": "string"
-                            },
-                            {
-                                "name": "OperationName",
-                                "description": "The operation that triggered the event.",
-                                "type": "string"
-                            },
-                            {
-                                "name": "Caller",
-                                "description": "The identity of the caller that triggered the event.",
-                                "type": "string"
-                            },
-                            {
-                                "name": "CorrelationId",
-                                "description": "The correlation ID for the event.",
-                                "type": "string"
-                            },
-                            {
-                                "name": "Status",
-                                "description": "The status of the operation.",
-                                "type": "string"
-                            },
-                            {
                                 "name": "Type",
-                                "description": "The name of the table.",
+                                "description": "The name of the table",
                                 "type": "string"
                             }
                         ]
