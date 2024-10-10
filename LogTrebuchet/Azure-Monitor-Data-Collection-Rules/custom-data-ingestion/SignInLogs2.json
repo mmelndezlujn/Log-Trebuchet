@@ -43,7 +43,7 @@
             "properties": {
                 "dataCollectionEndpointId": "[parameters('dataCollectionEndpointResourceId')]",
                 "streamDeclarations": {
-                    "Microsoft-Event": {
+                    "Custom-SignInLogs": {
                         "columns": [
                             {
                                 "name": "AADTenantId",
@@ -349,7 +349,7 @@
                 "dataFlows": [
                     {
                         "streams": [
-                            "Microsoft-Event"
+                            "Custom-SignInlogs"
                         ],
                         "destinations": [
                             "clv2ws1"
