@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qSb2XoVeA2+oRw5sEGykjAkK+m0SZEi0I9iHU6QW+yuptuyzL2D36ypcYTlGB6/0918MUN2nEmQaDShNAB6E2w==",
+  "dgSpecHash": "NCPoaIj3nMQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\mmelndezlujn\\OneDrive - Microsoft\\Documents\\Manny Tests\\Manny Tests\\Wrapper Script\\C#\\C#.csproj",
+  "projectFilePath": "C:\\Users\\mmelndezlujn\\OneDrive - Microsoft\\Documents\\Log-Trebuchet\\LogTrebuchet\\C#\\C#.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mmelndezlujn\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\mmelndezlujn\\.nuget\\packages\\azure.identity\\1.10.4\\azure.identity.1.10.4.nupkg.sha512",
@@ -117,5 +117,26 @@
     "C:\\Users\\mmelndezlujn\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\mmelndezlujn\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Azure.Identity' 1.10.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-m5vv-6r4h-3vj9",
+      "libraryId": "Azure.Identity",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Azure.Identity' 1.10.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-wvxc-855f-jvrv",
+      "libraryId": "Azure.Identity",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

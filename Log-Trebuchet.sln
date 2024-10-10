@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LogTrebuchet", "LogTrebuchet", "{954F94C5-803F-4BFE-9BF3-B658D8F2294E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C#", "LogTrebuchet\C#\C#.csproj", "{ED0D3BAA-9325-400B-8991-F4C13B504BE7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED0D3BAA-9325-400B-8991-F4C13B504BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED0D3BAA-9325-400B-8991-F4C13B504BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED0D3BAA-9325-400B-8991-F4C13B504BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED0D3BAA-9325-400B-8991-F4C13B504BE7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ED0D3BAA-9325-400B-8991-F4C13B504BE7} = {954F94C5-803F-4BFE-9BF3-B658D8F2294E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DA91DE36-90C7-40E3-961B-85F52C0AD92E}
+	EndGlobalSection
+EndGlobal

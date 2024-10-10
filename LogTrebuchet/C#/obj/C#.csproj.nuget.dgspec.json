@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mmelndezlujn\\OneDrive - Microsoft\\Documents\\Manny Tests\\Manny Tests\\Wrapper Script\\C#\\C#.csproj": {}
+    "C:\\Users\\mmelndezlujn\\OneDrive - Microsoft\\Documents\\Log-Trebuchet\\LogTrebuchet\\C#\\C#.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mmelndezlujn\\OneDrive - Microsoft\\Documents\\Manny Tests\\Manny Tests\\Wrapper Script\\C#\\C#.csproj": {
+    "C:\\Users\\mmelndezlujn\\OneDrive - Microsoft\\Documents\\Log-Trebuchet\\LogTrebuchet\\C#\\C#.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mmelndezlujn\\OneDrive - Microsoft\\Documents\\Manny Tests\\Manny Tests\\Wrapper Script\\C#\\C#.csproj",
+        "projectUniqueName": "C:\\Users\\mmelndezlujn\\OneDrive - Microsoft\\Documents\\Log-Trebuchet\\LogTrebuchet\\C#\\C#.csproj",
         "projectName": "C#",
-        "projectPath": "C:\\Users\\mmelndezlujn\\OneDrive - Microsoft\\Documents\\Manny Tests\\Manny Tests\\Wrapper Script\\C#\\C#.csproj",
+        "projectPath": "C:\\Users\\mmelndezlujn\\OneDrive - Microsoft\\Documents\\Log-Trebuchet\\LogTrebuchet\\C#\\C#.csproj",
         "packagesPath": "C:\\Users\\mmelndezlujn\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mmelndezlujn\\OneDrive - Microsoft\\Documents\\Manny Tests\\Manny Tests\\Wrapper Script\\C#\\obj\\",
+        "outputPath": "C:\\Users\\mmelndezlujn\\OneDrive - Microsoft\\Documents\\Log-Trebuchet\\LogTrebuchet\\C#\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,6 +39,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -81,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

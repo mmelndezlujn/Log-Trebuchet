@@ -34,7 +34,7 @@
         "windowsEventDCRTemplate": "[uri(variables('customDCRsTemplates'), 'WindowsEvent.json')]",
         "securityEventDCRTemplate": "[uri(variables('customDCRsTemplates'), 'SecurityEvent.json')]",
         "syslogDCRTemplate": "[uri(variables('customDCRsTemplates'), 'Syslog.json')]",
-        "azureActivityDCRTemplate": "[uri(variables('customDCRsTemplates'), 'AzureActivity.json')]"
+        "signInLogsDCRTemplate": "[uri(variables('customDCRsTemplates'), 'SignInLogs2.json')]"
     },
     "resources": [
         {
@@ -110,14 +110,14 @@
             }
         },
         {
-            "condition": "[contains(parameters('targetTables'),'AzureActivity')]",
-            "name": "AzureActivityDCR",
+            "condition": "[contains(parameters('targetTables'),'SignInLogs')]",
+            "name": "SignInLogsDCR",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2021-04-01",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[variables('azureActivityDCRTemplate')]",
+                    "uri": "[variables('signInLogsDCRTemplate')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -149,7 +149,7 @@
         },
         "azureActivityDCRImmutableId" : {
             "type": "string",
-            "value": "[reference('AzureActivityDCR').outputs.immutableId.value]"
+            "value": "[reference('SignInLogsDCR').outputs.immutableId.value]"
         },
         "allDCRImmutableIds": {
             "type": "array",
@@ -157,7 +157,7 @@
                 "[reference('WindowsEventDCR').outputs.immutableId.value]",
                 "[reference('SecurityEventDCR').outputs.immutableId.value]",
                 "[reference('SyslogEventDCR').outputs.immutableId.value]",
-                "[reference('AzureActivityDCR').outputs.immutableId.value]"
+                "[reference('SignInLogsDCR').outputs.immutableId.value]"
             ]
         },
         "allDCRIds": {
@@ -166,7 +166,7 @@
                 "[reference('WindowsEventDCR').outputs.dataCollectionRuleId.value]",
                 "[reference('SecurityEventDCR').outputs.dataCollectionRuleId.value]",
                 "[reference('SyslogEventDCR').outputs.dataCollectionRuleId.value]",
-                "[reference('AzureActivityDCR').outputs.dataCollectionRuleId.value]"
+                "[reference('SignInLogsDCR').outputs.dataCollectionRuleId.value]"
             ]
         }
     }
