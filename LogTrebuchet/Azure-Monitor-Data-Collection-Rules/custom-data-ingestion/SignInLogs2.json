@@ -167,7 +167,7 @@
                             },
                             {
                                 "name": "FlaggedForReview",
-                                "type": "bool",
+                                "type": "boolean",
                                 "description": "Indicates if the sign-in was flagged for review."
                             },
                             {
@@ -202,12 +202,12 @@
                             },
                             {
                                 "name": "IsInteractive",
-                                "type": "bool",
+                                "type": "boolean",
                                 "description": "Indicates whether a user sign in is interactive."
                             },
                             {
                                 "name": "IsRisky",
-                                "type": "bool",
+                                "type": "boolean",
                                 "description": "Indicates if the sign-in is considered risky."
                             },
                             {
