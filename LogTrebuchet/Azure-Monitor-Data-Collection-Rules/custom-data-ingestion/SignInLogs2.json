@@ -51,11 +51,6 @@
                                 "description": "The Azure Active Directory tenant ID."
                             },
                             {
-                                "name": "AlternateSignInName",
-                                "type": "string",
-                                "description": "The identification that the user provided to sign in. It may be the userPrincipalName but it's also populated when a user signs in using other identifiers."
-                            },
-                            {
                                 "name": "AppDisplayName",
                                 "type": "string",
                                 "description": "The application name displayed in the Azure Portal."
@@ -66,16 +61,6 @@
                                 "description": "The application identifier in Azure Active Directory."
                             },
                             {
-                                "name": "AppliedConditionalAccessPolicies",
-                                "type": "string",
-                                "description": "Policies applied during the sign-in."
-                            },
-                            {
-                                "name": "AppliedEventListeners",
-                                "type": "dynamic",
-                                "description": "Detailed information about the listeners, such as Azure Logic Apps and Azure Functions, that were triggered by the corresponding events in the sign-in event."
-                            },
-                            {
                                 "name": "AuthenticationContextClassReferences",
                                 "type": "string",
                                 "description": "Contains a collection of values that represent the conditional access authentication contexts applied to the sign-in."
@@ -84,11 +69,6 @@
                                 "name": "AuthenticationDetails",
                                 "type": "string",
                                 "description": "The result of the authentication attempt and additional details on the authentication method."
-                            },
-                            {
-                                "name": "AuthenticationMethodsUsed",
-                                "type": "string",
-                                "description": "The authentication methods used. Possible values: SMS, Authenticator App, App Verification code, Password, FIDO, PTA, or PHS."
                             },
                             {
                                 "name": "AuthenticationProcessingDetails",
@@ -114,11 +94,6 @@
                                 "name": "AutonomousSystemNumber",
                                 "type": "string",
                                 "description": "The Autonomous System Number (ASN) of the network used by the actor."
-                            },
-                            {
-                                "name": "_BilledSize",
-                                "type": "real",
-                                "description": "The record size in bytes."
                             },
                             {
                                 "name": "Category",
@@ -181,19 +156,9 @@
                                 "description": "The display name of the actor identified in the sign-in."
                             },
                             {
-                                "name": "IpAddress",
+                                "name": "IPAddress",
                                 "type": "string",
                                 "description": "The IP address of the client from where the sign-in occurred."
-                            },
-                            {
-                                "name": "IpAddressFromResourceProvider",
-                                "type": "string",
-                                "description": "The IP address a user used to reach a resource provider."
-                            },
-                            {
-                                "name": "_IsBillable",
-                                "type": "string",
-                                "description": "Specifies whether ingesting the data is billable."
                             },
                             {
                                 "name": "Level",
@@ -266,11 +231,6 @@
                                 "description": "The identity of the resource that the user signed in to."
                             },
                             {
-                                "name": "ResourceProvider",
-                                "type": "string",
-                                "description": "The resource provider of the signed-in application."
-                            },
-                            {
                                 "name": "ResourceServicePrincipalId",
                                 "type": "string",
                                 "description": "The identifier of the service principal representing the target resource in the sign-in event."
@@ -311,11 +271,6 @@
                                 "description": "The list of risk event types associated with the sign-in."
                             },
                             {
-                                "name": "RiskLevel",
-                                "type": "string",
-                                "description": "The risk level during the sign-in."
-                            },
-                            {
                                 "name": "RiskLevelAggregated",
                                 "type": "string",
                                 "description": "The aggregated risk level."
@@ -331,34 +286,9 @@
                                 "description": "The risk state of a risky user, sign-in, or a risk event."
                             },
                             {
-                                "name": "ServicePrincipalId",
-                                "type": "string",
-                                "description": "The application identifier used for sign-in."
-                            },
-                            {
-                                "name": "ServicePrincipalName",
-                                "type": "string",
-                                "description": "The application name used for sign-in."
-                            },
-                            {
                                 "name": "SessionLifetimePolicies",
                                 "type": "string",
                                 "description": "Any conditional access session management policies that were applied during the sign-in event."
-                            },
-                            {
-                                "name": "SignInIdentifier",
-                                "type": "string",
-                                "description": "The identification that the user provided to sign in."
-                            },
-                            {
-                                "name": "SignInIdentifierType",
-                                "type": "string",
-                                "description": "The type of sign in identifier."
-                            },
-                            {
-                                "name": "SourceSystem",
-                                "type": "string",
-                                "description": "The type of agent the event was collected by."
                             },
                             {
                                 "name": "Status",
@@ -369,11 +299,6 @@
                                 "name": "TimeGenerated",
                                 "type": "datetime",
                                 "description": "The time the sign-in record was generated."
-                            },
-                            {
-                                "name": "TokenIssuerName",
-                                "type": "string",
-                                "description": "The name of the identity provider."
                             },
                             {
                                 "name": "TokenIssuerType",
