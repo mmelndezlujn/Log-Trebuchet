@@ -429,7 +429,7 @@
                         "destinations": [
                             "clv2ws1"
                         ],
-                        "outputStream": "Microsoft-SigninLogs"
+                        "outputStream": "Microsoft-SignInLogs"
                     }
                 ]
             }
