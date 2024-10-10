@@ -147,7 +147,7 @@
             "type": "string",
             "value": "[reference('SyslogEventDCR').outputs.immutableId.value]"
         },
-        "azureActivityDCRImmutableId" : {
+        "signInLogsDCRImmutableId" : {
             "type": "string",
             "value": "[reference('SignInLogsDCR').outputs.immutableId.value]"
         },
