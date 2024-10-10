@@ -166,11 +166,6 @@
                                 "description": "Duration of the sign-in process in milliseconds."
                             },
                             {
-                                "name": "FlaggedForReview",
-                                "type": "boolean",
-                                "description": "Indicates if the sign-in was flagged for review."
-                            },
-                            {
                                 "name": "HomeTenantId",
                                 "type": "string",
                                 "description": "The tenant identifier of the user initiating the sign in."
@@ -199,16 +194,6 @@
                                 "name": "_IsBillable",
                                 "type": "string",
                                 "description": "Specifies whether ingesting the data is billable."
-                            },
-                            {
-                                "name": "IsInteractive",
-                                "type": "boolean",
-                                "description": "Indicates whether a user sign in is interactive."
-                            },
-                            {
-                                "name": "IsRisky",
-                                "type": "boolean",
-                                "description": "Indicates if the sign-in is considered risky."
                             },
                             {
                                 "name": "Level",
