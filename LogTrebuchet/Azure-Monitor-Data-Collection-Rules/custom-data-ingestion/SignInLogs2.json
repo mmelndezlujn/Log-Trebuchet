@@ -46,54 +46,384 @@
                     "Custom-SignInLogs": {
                         "columns": [
                             {
-                                "name": "UserPrincipalName",
-                                "description": "The user principal name of the user.",
-                                "type": "string"
+                                "name": "AADTenantId",
+                                "type": "string",
+                                "description": "The Azure Active Directory tenant ID."
                             },
                             {
-                                "name": "SignInTime",
-                                "description": "Date and time of the sign-in attempt.",
-                                "type": "datetime"
+                                "name": "AlternateSignInName",
+                                "type": "string",
+                                "description": "The identification that the user provided to sign in. It may be the userPrincipalName but it's also populated when a user signs in using other identifiers."
                             },
                             {
-                                "name": "IPAddress",
-                                "description": "IP address from which the sign-in attempt was made.",
-                                "type": "string"
+                                "name": "AppDisplayName",
+                                "type": "string",
+                                "description": "The application name displayed in the Azure Portal."
                             },
                             {
-                                "name": "Status",
-                                "description": "Result of the sign-in attempt (Success/Failure).",
-                                "type": "string"
+                                "name": "AppId",
+                                "type": "string",
+                                "description": "The application identifier in Azure Active Directory."
+                            },
+                            {
+                                "name": "AppliedConditionalAccessPolicies",
+                                "type": "string",
+                                "description": "Policies applied during the sign-in."
+                            },
+                            {
+                                "name": "AppliedEventListeners",
+                                "type": "dynamic",
+                                "description": "Detailed information about the listeners, such as Azure Logic Apps and Azure Functions, that were triggered by the corresponding events in the sign-in event."
+                            },
+                            {
+                                "name": "AuthenticationContextClassReferences",
+                                "type": "string",
+                                "description": "Contains a collection of values that represent the conditional access authentication contexts applied to the sign-in."
+                            },
+                            {
+                                "name": "AuthenticationDetails",
+                                "type": "string",
+                                "description": "The result of the authentication attempt and additional details on the authentication method."
+                            },
+                            {
+                                "name": "AuthenticationMethodsUsed",
+                                "type": "string",
+                                "description": "The authentication methods used. Possible values: SMS, Authenticator App, App Verification code, Password, FIDO, PTA, or PHS."
+                            },
+                            {
+                                "name": "AuthenticationProcessingDetails",
+                                "type": "string",
+                                "description": "Additional authentication processing details, such as the agent name in case of PTA/PHS or Server/farm name in case of federated authentication."
+                            },
+                            {
+                                "name": "AuthenticationProtocol",
+                                "type": "string",
+                                "description": "Lists the protocol type or grant type used in the authentication. Possible values are: none, oAuth2, ropc, wsFederation, saml20, deviceCode."
+                            },
+                            {
+                                "name": "AuthenticationRequirement",
+                                "type": "string",
+                                "description": "This holds the highest level of authentication needed through all the sign-in steps for sign-in to succeed."
+                            },
+                            {
+                                "name": "AuthenticationRequirementPolicies",
+                                "type": "string",
+                                "description": "Sources of authentication requirement, such as conditional access, per-user MFA, identity protection, and security defaults."
+                            },
+                            {
+                                "name": "AutonomousSystemNumber",
+                                "type": "string",
+                                "description": "The Autonomous System Number (ASN) of the network used by the actor."
+                            },
+                            {
+                                "name": "_BilledSize",
+                                "type": "real",
+                                "description": "The record size in bytes."
+                            },
+                            {
+                                "name": "Category",
+                                "type": "string",
+                                "description": "Category of the sign-in event."
+                            },
+                            {
+                                "name": "ClientAppUsed",
+                                "type": "string",
+                                "description": "The legacy client used for sign-in activity. For example: Browser, Exchange ActiveSync, Modern clients, IMAP, MAPI, SMTP, or POP."
+                            },
+                            {
+                                "name": "ConditionalAccessPolicies",
+                                "type": "dynamic",
+                                "description": "A list of conditional access policies that are triggered by the corresponding sign-in activity."
+                            },
+                            {
+                                "name": "ConditionalAccessStatus",
+                                "type": "string",
+                                "description": "The status of the conditional access policy triggered. Possible values: success, failure, or notApplied."
+                            },
+                            {
+                                "name": "CorrelationId",
+                                "type": "string",
+                                "description": "The identifier that's sent from the client when sign-in is initiated."
+                            },
+                            {
+                                "name": "CreatedDateTime",
+                                "type": "datetime",
+                                "description": "The date and time the sign-in was initiated. Always in UTC time."
+                            },
+                            {
+                                "name": "CrossTenantAccessType",
+                                "type": "string",
+                                "description": "Describes the type of cross-tenant access used by the actor to access the resource."
+                            },
+                            {
+                                "name": "DeviceDetail",
+                                "type": "dynamic",
+                                "description": "The device information from where the sign-in occurred."
+                            },
+                            {
+                                "name": "DurationMs",
+                                "type": "long",
+                                "description": "Duration of the sign-in process in milliseconds."
+                            },
+                            {
+                                "name": "FlaggedForReview",
+                                "type": "bool",
+                                "description": "Indicates if the sign-in was flagged for review."
+                            },
+                            {
+                                "name": "HomeTenantId",
+                                "type": "string",
+                                "description": "The tenant identifier of the user initiating the sign in."
+                            },
+                            {
+                                "name": "Id",
+                                "type": "string",
+                                "description": "The identifier representing the sign-in activity."
+                            },
+                            {
+                                "name": "Identity",
+                                "type": "string",
+                                "description": "The display name of the actor identified in the sign-in."
+                            },
+                            {
+                                "name": "IpAddress",
+                                "type": "string",
+                                "description": "The IP address of the client from where the sign-in occurred."
+                            },
+                            {
+                                "name": "IpAddressFromResourceProvider",
+                                "type": "string",
+                                "description": "The IP address a user used to reach a resource provider."
+                            },
+                            {
+                                "name": "_IsBillable",
+                                "type": "string",
+                                "description": "Specifies whether ingesting the data is billable."
+                            },
+                            {
+                                "name": "IsInteractive",
+                                "type": "bool",
+                                "description": "Indicates whether a user sign in is interactive."
+                            },
+                            {
+                                "name": "IsRisky",
+                                "type": "bool",
+                                "description": "Indicates if the sign-in is considered risky."
+                            },
+                            {
+                                "name": "Level",
+                                "type": "string",
+                                "description": "Risk level associated with the sign-in."
                             },
                             {
                                 "name": "Location",
-                                "description": "Geographical location of the sign-in attempt.",
-                                "type": "string"
+                                "type": "string",
+                                "description": "The 2 letter country code from where the sign-in occurred."
                             },
                             {
-                                "name": "Device",
-                                "description": "The device used for the sign-in.",
-                                "type": "string"
+                                "name": "LocationDetails",
+                                "type": "dynamic",
+                                "description": "Provides detailed location information of the sign-in."
                             },
                             {
-                                "name": "ClientApp",
-                                "description": "The client application used for the sign-in.",
-                                "type": "string"
+                                "name": "MfaDetail",
+                                "type": "dynamic",
+                                "description": "This property is deprecated."
                             },
                             {
-                                "name": "TenantId",
-                                "description": "The tenant ID associated with the sign-in.",
-                                "type": "string"
+                                "name": "NetworkLocationDetails",
+                                "type": "string",
+                                "description": "The network location details including the type of network used."
+                            },
+                            {
+                                "name": "OperationName",
+                                "type": "string",
+                                "description": "The name of the operation performed during the sign-in."
+                            },
+                            {
+                                "name": "OperationVersion",
+                                "type": "string",
+                                "description": "The version of the operation performed."
+                            },
+                            {
+                                "name": "OriginalRequestId",
+                                "type": "string",
+                                "description": "The request identifier of the first request in the authentication sequence."
+                            },
+                            {
+                                "name": "ProcessingTimeInMilliseconds",
+                                "type": "string",
+                                "description": "The processing time for the sign-in in milliseconds."
+                            },
+                            {
+                                "name": "Resource",
+                                "type": "string",
+                                "description": "The resource the user signed in to."
+                            },
+                            {
+                                "name": "ResourceDisplayName",
+                                "type": "string",
+                                "description": "The name of the resource that the user signed in to."
+                            },
+                            {
+                                "name": "ResourceGroup",
+                                "type": "string",
+                                "description": "The resource group associated with the sign-in."
+                            },
+                            {
+                                "name": "ResourceId",
+                                "type": "string",
+                                "description": "The identifier of the resource that the user signed in to."
+                            },
+                            {
+                                "name": "ResourceIdentity",
+                                "type": "string",
+                                "description": "The identity of the resource that the user signed in to."
+                            },
+                            {
+                                "name": "ResourceProvider",
+                                "type": "string",
+                                "description": "The resource provider of the signed-in application."
+                            },
+                            {
+                                "name": "ResourceServicePrincipalId",
+                                "type": "string",
+                                "description": "The identifier of the service principal representing the target resource in the sign-in event."
+                            },
+                            {
+                                "name": "ResourceTenantId",
+                                "type": "string",
+                                "description": "The tenant identifier of the resource referenced in the sign-in."
+                            },
+                            {
+                                "name": "ResultDescription",
+                                "type": "string",
+                                "description": "Provides the error message or the reason for failure for the corresponding sign-in activity."
+                            },
+                            {
+                                "name": "ResultSignature",
+                                "type": "string",
+                                "description": "The signature of the result."
+                            },
+                            {
+                                "name": "ResultType",
+                                "type": "string",
+                                "description": "Provides the 5-6 digit error code generated during a sign-in event."
+                            },
+                            {
+                                "name": "RiskDetail",
+                                "type": "string",
+                                "description": "The reason behind a specific state of a risky user, sign-in, or a risk event."
+                            },
+                            {
+                                "name": "RiskEventTypes",
+                                "type": "dynamic",
+                                "description": "This property is deprecated."
+                            },
+                            {
+                                "name": "RiskEventTypes_V2",
+                                "type": "string",
+                                "description": "The list of risk event types associated with the sign-in."
+                            },
+                            {
+                                "name": "RiskLevel",
+                                "type": "string",
+                                "description": "The risk level during the sign-in."
+                            },
+                            {
+                                "name": "RiskLevelAggregated",
+                                "type": "string",
+                                "description": "The aggregated risk level."
+                            },
+                            {
+                                "name": "RiskLevelDuringSignIn",
+                                "type": "string",
+                                "description": "The risk level during sign-in."
+                            },
+                            {
+                                "name": "RiskState",
+                                "type": "string",
+                                "description": "The risk state of a risky user, sign-in, or a risk event."
+                            },
+                            {
+                                "name": "ServicePrincipalId",
+                                "type": "string",
+                                "description": "The application identifier used for sign-in."
+                            },
+                            {
+                                "name": "ServicePrincipalName",
+                                "type": "string",
+                                "description": "The application name used for sign-in."
+                            },
+                            {
+                                "name": "SessionLifetimePolicies",
+                                "type": "string",
+                                "description": "Any conditional access session management policies that were applied during the sign-in event."
+                            },
+                            {
+                                "name": "SignInIdentifier",
+                                "type": "string",
+                                "description": "The identification that the user provided to sign in."
+                            },
+                            {
+                                "name": "SignInIdentifierType",
+                                "type": "string",
+                                "description": "The type of sign in identifier."
+                            },
+                            {
+                                "name": "SourceSystem",
+                                "type": "string",
+                                "description": "The type of agent the event was collected by."
+                            },
+                            {
+                                "name": "Status",
+                                "type": "dynamic",
+                                "description": "The sign-in status, including error code and description."
                             },
                             {
                                 "name": "TimeGenerated",
-                                "description": "Date and time the record was created.",
-                                "type": "datetime"
+                                "type": "datetime",
+                                "description": "The time the sign-in record was generated."
                             },
                             {
-                                "name": "Type",
-                                "description": "The name of the log type.",
-                                "type": "string"
+                                "name": "TokenIssuerName",
+                                "type": "string",
+                                "description": "The name of the identity provider."
+                            },
+                            {
+                                "name": "TokenIssuerType",
+                                "type": "string",
+                                "description": "The type of identity provider."
+                            },
+                            {
+                                "name": "UniqueTokenIdentifier",
+                                "type": "string",
+                                "description": "A unique base64 encoded request identifier used to track tokens issued by Azure AD."
+                            },
+                            {
+                                "name": "UserAgent",
+                                "type": "string",
+                                "description": "The user agent information related to sign-in."
+                            },
+                            {
+                                "name": "UserDisplayName",
+                                "type": "string",
+                                "description": "The display name of the user."
+                            },
+                            {
+                                "name": "UserId",
+                                "type": "string",
+                                "description": "The identifier of the user."
+                            },
+                            {
+                                "name": "UserPrincipalName",
+                                "type": "string",
+                                "description": "The UPN of the user."
+                            },
+                            {
+                                "name": "UserType",
+                                "type": "string",
+                                "description": "The type of the user."
                             }
                         ]
                     }
