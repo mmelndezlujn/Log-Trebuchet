@@ -864,7 +864,7 @@
                                 "type": "string"
                             },
                             {
-                                "name": "Type",
+                                "name": "test",
                                 "type": "string"
                             },
                             {
