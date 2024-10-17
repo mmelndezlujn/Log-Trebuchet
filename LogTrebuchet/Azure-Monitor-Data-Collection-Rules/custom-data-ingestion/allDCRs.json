@@ -33,7 +33,7 @@
         "customDCRsTemplates": "https://raw.githubusercontent.com/mmelndezlujn/Log-Trebuchet/refs/heads/main/LogTrebuchet/Azure-Monitor-Data-Collection-Rules/custom-data-ingestion/",
         "windowsEventDCRTemplate": "[uri(variables('customDCRsTemplates'), 'WindowsEvent.json')]",
         "securityEventDCRTemplate": "[uri(variables('customDCRsTemplates'), 'SecurityEvent.json')]",
-        "syslogDCRTemplate": "[uri(variables('customDCRsTemplates'), 'Syslog.json')]",
+        //"syslogDCRTemplate": "[uri(variables('customDCRsTemplates'), 'Syslog.json')]",
         "signInLogsDCRTemplate": "[uri(variables('customDCRsTemplates'), 'SignInLogs2.json')]"
     },
     "resources": [
@@ -85,30 +85,30 @@
                 }
             }
         },
-        {
-            "condition": "[contains(parameters('targetTables'),'Syslog')]",
-            "name": "SyslogEventDCR",
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2021-04-01",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[variables('syslogDCRTemplate')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                     "workspaceResourceId": {
-                        "value": "[parameters('workspaceResourceId')]"
-                    },
-                    "dataCollectionEndpointResourceId": {
-                        "value": "[parameters('dataCollectionEndpointResourceId')]"
-                    },
-                    "location": {
-                        "value": "[parameters('location')]"
-                    }
-                }
-            }
-        },
+        // {
+        //     "condition": "[contains(parameters('targetTables'),'Syslog')]",
+        //     "name": "SyslogEventDCR",
+        //     "type": "Microsoft.Resources/deployments",
+        //     "apiVersion": "2021-04-01",
+        //     "properties": {
+        //         "mode": "Incremental",
+        //         "templateLink": {
+        //             "uri": "[variables('syslogDCRTemplate')]",
+        //             "contentVersion": "1.0.0.0"
+        //         },
+        //         "parameters": {
+        //              "workspaceResourceId": {
+        //                 "value": "[parameters('workspaceResourceId')]"
+        //             },
+        //             "dataCollectionEndpointResourceId": {
+        //                 "value": "[parameters('dataCollectionEndpointResourceId')]"
+        //             },
+        //             "location": {
+        //                 "value": "[parameters('location')]"
+        //             }
+        //         }
+        //     }
+        // },
         {
             "condition": "[contains(parameters('targetTables'),'SignInLogs')]",
             "name": "SignInLogsDCR",
@@ -143,10 +143,10 @@
             "type": "string",
             "value": "[reference('SecurityEventDCR').outputs.immutableId.value]"
         },
-        "syslogEventDCRImmutableId" : {
-            "type": "string",
-            "value": "[reference('SyslogEventDCR').outputs.immutableId.value]"
-        },
+        // "syslogEventDCRImmutableId" : {
+        //     "type": "string",
+        //     "value": "[reference('SyslogEventDCR').outputs.immutableId.value]"
+        // },
         "signInLogsDCRImmutableId" : {
             "type": "string",
             "value": "[reference('SignInLogsDCR').outputs.immutableId.value]"
@@ -156,7 +156,7 @@
             "value": [
                 "[reference('WindowsEventDCR').outputs.immutableId.value]",
                 "[reference('SecurityEventDCR').outputs.immutableId.value]",
-                "[reference('SyslogEventDCR').outputs.immutableId.value]",
+                //"[reference('SyslogEventDCR').outputs.immutableId.value]",
                 "[reference('SignInLogsDCR').outputs.immutableId.value]"
             ]
         },
@@ -165,7 +165,7 @@
             "value": [
                 "[reference('WindowsEventDCR').outputs.dataCollectionRuleId.value]",
                 "[reference('SecurityEventDCR').outputs.dataCollectionRuleId.value]",
-                "[reference('SyslogEventDCR').outputs.dataCollectionRuleId.value]",
+                //"[reference('SyslogEventDCR').outputs.dataCollectionRuleId.value]",
                 "[reference('SignInLogsDCR').outputs.dataCollectionRuleId.value]"
             ]
         }
