@@ -46,8 +46,64 @@
                     "Custom-SignInLogs": {
                         "columns": [
                             {
-                                "name": "TimeGenerated",
+                                "name": "Computer",
+                                "description": "Computer that the event was collected from.",
+                                "type": "string"
+                            },
+                            {
+                                "name": "EventTime",
+                                "description": "Name of endpoint where event was originatedDate and time that the event was generated.",
                                 "type": "datetime"
+                            },
+                            {
+                                "name": "Facility",
+                                "description": "The part of the system that generated the message.",
+                                "type": "string"
+                            },
+                            {
+                                "name": "HostIP",
+                                "description": "IP address of the system sending the message.",
+                                "type": "string"
+                            },
+                            {
+                                "name": "HostName",
+                                "description": "Name of the system sending the message.",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ProcessID",
+                                "description": "ID of the process that generated the message.",
+                                "type": "int"
+                            },
+                            {
+                                "name": "ProcessName",
+                                "decription": "Name of the process that generated the message.",
+                                "type": "string"
+                            },
+                            {
+                                "name": "SeverityLevel",
+                                "decription": "Severity level of the event.",
+                                "type": "string"
+                            },
+                            {
+                                "name": "SourceSystem",
+                                "description": "Type of agent the data was collected from. For syslog the value is typically Linux.",
+                                "type": "string"
+                            },
+                            {
+                                "name": "SyslogMessage",
+                                "description": "Text of the message.",
+                                "type": "string"
+                            },
+                            {
+                                "name": "TimeGenerated",
+                                "description": "Date and time the record was created.",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "Type",
+                                "description": "The name of the table",
+                                "type": "string"
                             }
                         ]
                     }
