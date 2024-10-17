@@ -46,12 +46,8 @@
                     "Custom-SignInLogs": {
                         "columns": [
                             {
-                                "name": "AppDisplayName",
-                                "type": "string"
-                            },
-                            {
-                                "name": "AppId",
-                                "type": "string"
+                                "name": "TimeGenerated",
+                                "type": "datetime"
                             }
                         ]
                     }
@@ -72,7 +68,6 @@
                         "destinations": [
                             "clv2ws1"
                         ],
-                        "transformkql": "source | project AppDisplayName,AppId",
                         "outputStream": "Microsoft-SigninLogs"
                     }
                 ]
