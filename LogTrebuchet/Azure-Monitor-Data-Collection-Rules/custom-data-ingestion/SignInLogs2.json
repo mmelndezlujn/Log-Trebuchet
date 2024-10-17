@@ -7,7 +7,7 @@
             "metadata": {
                 "description": "Specifies the name of the data collection rule to create."
             },
-            "defaultValue": "[concat('SignInLogsDCR2-', uniquestring(subscription().subscriptionId, resourceGroup().id, deployment().name))]"
+            "defaultValue": "[concat('SignInLogsDCR3-', uniquestring(subscription().subscriptionId, resourceGroup().id, deployment().name))]"
         },
         "tagsArray": {
             "type": "Object",
@@ -69,7 +69,7 @@
                         "destinations": [
                             "clv2ws1"
                         ],
-                        "outputStream": "Microsoft-Syslog"
+                        "outputStream": "Microsoft-SignInLogs"
                     }
                 ]
             }
