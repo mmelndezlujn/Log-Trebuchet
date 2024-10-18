@@ -15,12 +15,14 @@
             }
         },
         "filePatterns": {
+            "defaultValue": "*.log, /var/log/myapp/*.txt",
             "type": "string",
             "metadata": {
               "description": "Path on the local disk for the log file to collect. May include wildcards.Enter multiple file patterns separated by commas (AMA version 1.26 or higher required for multiple file patterns on Linux)."
             }
         },
         "tableName": {
+            "defaultValue": "TEST",
             "type": "string",
             "metadata": {
               "description": "Name of destination table in your Log Analytics workspace. "
@@ -34,7 +36,7 @@
         }
     },
     "variables": {
-      "tableOutputStream": "Custom-TestTable"
+      "tableOutputStream": "[concat('Custom-', parameters('tableName'))]"
     },
     "resources": [
         {
@@ -73,7 +75,7 @@
                                 "Custom-Text-stream"
                             ],
                             "filePatterns": [
-                                "*"
+                                "[parameters('filePatterns')]"
                             ],
                             "format": "text",
                             "name": "Custom-Text-dataSource"
