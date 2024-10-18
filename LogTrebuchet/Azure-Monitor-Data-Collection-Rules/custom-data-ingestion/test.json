@@ -74,9 +74,7 @@
                             "streams": [
                                 "Custom-Text-stream"
                             ],
-                            "filePatterns": [
-                                "[parameters('filePatterns')]"
-                            ],
+                            "filePatterns": ["/Users/mmelndezlujn/OneDrive - Microsoft/Documents/Log-Trebuchet/*.json"],
                             "format": "text",
                             "name": "Custom-Text-dataSource"
                         }
