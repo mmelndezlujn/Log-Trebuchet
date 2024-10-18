@@ -45,11 +45,6 @@
                 "streamDeclarations": {
                     "Custom-SignInLogs": {
                         "columns": [
-                            {
-                                "name": "TimeGenerated",
-                                "description": "Date and time the record was created.",
-                                "type": "datetime"
-                            }
                         ]
                     }
                 },
