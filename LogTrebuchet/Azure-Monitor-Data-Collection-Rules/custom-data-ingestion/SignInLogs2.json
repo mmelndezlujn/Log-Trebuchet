@@ -43,7 +43,7 @@
             "properties": {
                 "dataCollectionEndpointId": "[parameters('dataCollectionEndpointResourceId')]",
                 "streamDeclarations": {
-                    "Custom-SignInLogs": {
+                    "Custom-SignInLogs2": {
                         "columns": [
                         ]
                     }
@@ -59,7 +59,7 @@
                 "dataFlows": [
                     {
                         "streams": [
-                            "Custom-SignInLogs"
+                            "Custom-SignInLogs2"
                         ],
                         "destinations": [
                             "clv2ws1"
