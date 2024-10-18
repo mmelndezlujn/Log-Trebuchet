@@ -2,12 +2,6 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "dataCollectionRuleName": {
-            "type": "string",
-            "metadata": {
-              "description": "Unique name for the DCR. "
-            }
-        },
         "dataCollectionEndpointResourceId": {
             "type": "string",
             "metadata": {
@@ -45,7 +39,7 @@
     "resources": [
         {
             "type": "Microsoft.Insights/dataCollectionRules",
-            "name": "[parameters('dataCollectionRuleName')]",
+            "name": "testDCR",
             "location": "[parameters('location')]",
             "apiVersion": "2022-06-01",
             "properties": {
