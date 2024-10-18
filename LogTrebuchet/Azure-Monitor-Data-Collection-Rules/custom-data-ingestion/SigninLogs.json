@@ -357,7 +357,7 @@
                             "clv2ws1"
                         ],
                         //"transformkql": "source | project AADTenantId, AlternateSignInName, AppDisplayName, AppId, AppliedConditionalAccessPolicies, AppliedEventListeners, AuthenticationContextClassReferences, AuthenticationDetails, AuthenticationMethodsUsed, AuthenticationProcessingDetails, AuthenticationProtocol, AuthenticationRequirement, AuthenticationRequirementPolicies, AutonomousSystemNumber, _BilledSize, Category, ClientAppUsed, ConditionalAccessPolicies, ConditionalAccessStatus, CorrelationId, CreatedDateTime, CrossTenantAccessType, DeviceDetail, DurationMs, FlaggedForReview, HomeTenantId, Id, Identity, IPAddress, IPAddressFromResourceProvider, _IsBillable, IsInteractive, IsRisky, Level, Location, LocationDetails, MfaDetail, NetworkLocationDetails, OperationName, OperationVersion, OriginalRequestId, ProcessingTimeInMilliseconds, Resource, ResourceDisplayName, ResourceGroup, ResourceId, ResourceIdentity, ResourceProvider, ResourceServicePrincipalId, ResourceTenantId, ResultDescription, ResultSignature, ResultType, RiskDetail, RiskEventTypes, RiskEventTypes_V2, RiskLevel, RiskLevelAggregated, RiskLevelDuringSignIn, RiskState, ServicePrincipalId, ServicePrincipalName, SessionLifetimePolicies, SignInIdentifier, SignInIdentifierType, SourceSystem, Status, TimeGenerated, TokenIssuerName, TokenIssuerType, UniqueTokenIdentifier, UserAgent, UserDisplayName, UserId, UserPrincipalName, UserType",
-                        "outputStream": "Microsoft-SigningLogs"
+                        "outputStream": "Microsoft-SigninLogs"
                     }
                 ]
             }
