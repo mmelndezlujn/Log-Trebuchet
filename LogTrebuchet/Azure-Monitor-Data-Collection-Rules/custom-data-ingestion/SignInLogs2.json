@@ -43,33 +43,29 @@
             "properties": {
                 "dataCollectionEndpointId": "[parameters('dataCollectionEndpointResourceId')]",
                 "streamDeclarations": {
-                    "Custom-MyDcrIngestionRawData": {
-                        "columns": [						  
-						  {
-							"name": "SourceSystem",
-							"type": "string"
-						  },
-						  {
-							"name": "MG",
-							"type": "string"
-						  },
-						  {
-							"name": "ManagementGroupName",
-							"type": "string"
-						  },
-						  {
-							"name": "TimeGenerated",
-							"type": "datetime"
-						  },
-						  {
-							"name": "Computer",
-							"type": "string"
-						  },
-						  {
-							"name": "RawData",
-							"type": "string"
-						  }
-						]
+                    "Custom-SignInLogs3": {
+                        "columns": [
+                            {
+                                "name": "TimeGenerated",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "UserDisplayName",
+                                "type": "string"
+                            },
+                            {
+                                "name": "UserId",
+                                "type": "string"
+                            },
+                            {
+                                "name": "UserPrincipalName",
+                                "type": "string"
+                            },
+                            {
+                                "name": "UserType",
+                                "type": "string"
+                            }
+                        ]
                     }
                 },
                 "destinations": {
@@ -83,12 +79,12 @@
                 "dataFlows": [
                     {
                         "streams": [
-                            "Custom-MyDcrIngestionRawData"
+                            "Custom-SignInLogs3"
                         ],
                         "destinations": [
                             "clv2ws1"
                         ],
-                        "outputStream": "Custom-MyDcrIngestion_CL"
+                        "outputStream": "Microsoft-SigninLogs"
                     }
                 ]
             }
