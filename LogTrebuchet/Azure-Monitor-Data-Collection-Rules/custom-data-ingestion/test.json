@@ -15,7 +15,7 @@
             }
         },
         "filePatterns": {
-            "defaultValue": "C:/Users/mmelndezlujn/OneDrive - Microsoft/Documents/Log-Trebuchet/*.json",
+            "defaultValue": "/Users/mmelndezlujn/OneDrive - Microsoft/Documents/Log-Trebuchet/*.json",
             "type": "string",
             "metadata": {
               "description": "Path on the local disk for the log file to collect. May include wildcards.Enter multiple file patterns separated by commas (AMA version 1.26 or higher required for multiple file patterns on Linux)."
