@@ -1,0 +1,112 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "dataCollectionRuleName": {
+            "type": "string",
+            "metadata": {
+              "description": "Unique name for the DCR. "
+            }
+        },
+        "dataCollectionEndpointResourceId": {
+            "type": "string",
+            "metadata": {
+              "description": "Resource ID of the data collection endpoint (DCE)."
+            }
+        },
+        "location": {
+            "type": "string",
+            "metadata": {
+              "description": "Region for the DCR. Must be the same location as the Log Analytics workspace. "
+            }
+        },
+        "filePatterns": {
+            "type": "string",
+            "metadata": {
+              "description": "Path on the local disk for the log file to collect. May include wildcards.Enter multiple file patterns separated by commas (AMA version 1.26 or higher required for multiple file patterns on Linux)."
+            }
+        },
+        "tableName": {
+            "type": "string",
+            "metadata": {
+              "description": "Name of destination table in your Log Analytics workspace. "
+            }
+        },
+        "workspaceResourceId": {
+            "type": "string",
+            "metadata": {
+              "description": "Resource ID of the Log Analytics workspace with the target table."
+            }
+        }
+    },
+    "variables": {
+      "tableOutputStream": "Custom-TestTable"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Insights/dataCollectionRules",
+            "name": "[parameters('dataCollectionRuleName')]",
+            "location": "[parameters('location')]",
+            "apiVersion": "2022-06-01",
+            "properties": {
+                "dataCollectionEndpointId": "[parameters('dataCollectionEndpointResourceId')]",
+                "streamDeclarations": {
+                    "Custom-Text-stream": {
+                        "columns": [
+                            {
+                                "name": "TimeGenerated",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "RawData",
+                                "type": "string"
+                            },
+                            {
+                                "name": "FilePath",
+                                "type": "string"
+                            },
+                            {
+                                "name": "Computer",
+                                "type": "string"
+                            }
+                        ]
+                    }
+                },
+                "dataSources": {
+                    "logFiles": [
+                        {
+                            "streams": [
+                                "Custom-Text-stream"
+                            ],
+                            "filePatterns": [
+                                "[parameters('filePatterns')]"
+                            ],
+                            "format": "text",
+                            "name": "Custom-Text-dataSource"
+                        }
+                    ]
+                },
+                "destinations": {
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "[parameters('workspaceResourceId')]",
+                            "name": "workspace"
+                        }
+                    ]
+                },
+                "dataFlows": [
+                    {
+                        "streams": [
+                            "Custom-Text-dataSource"
+                        ],
+                        "destinations": [
+                            "workspace"
+                        ],
+                        "transformKql": "source",
+                        "outputStream": "[variables('tableOutputStream')]"
+                    }
+                ]
+            }
+        }
+    ]
+}
