@@ -73,7 +73,7 @@
                                 "Custom-Text-stream"
                             ],
                             "filePatterns": [
-                                "[parameters('filePatterns')]"
+                                "*"
                             ],
                             "format": "text",
                             "name": "Custom-Text-dataSource"
