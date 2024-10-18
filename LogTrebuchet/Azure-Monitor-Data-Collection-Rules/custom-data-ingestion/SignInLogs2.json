@@ -45,6 +45,42 @@
                 "streamDeclarations": {
                     "Custom-SignInLogs2": {
                         "columns": [
+                            {
+                                "name": "TimeGenerated",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "TokenIssuerName",
+                                "type": "string"
+                            },
+                            {
+                                "name": "TokenIssuerType",
+                                "type": "string"
+                            },
+                            {
+                                "name": "UniqueTokenIdentifier",
+                                "type": "string"
+                            },
+                            {
+                                "name": "UserAgent",
+                                "type": "string"
+                            },
+                            {
+                                "name": "UserDisplayName",
+                                "type": "string"
+                            },
+                            {
+                                "name": "UserId",
+                                "type": "string"
+                            },
+                            {
+                                "name": "UserPrincipalName",
+                                "type": "string"
+                            },
+                            {
+                                "name": "UserType",
+                                "type": "string"
+                            }
                         ]
                     }
                 },
