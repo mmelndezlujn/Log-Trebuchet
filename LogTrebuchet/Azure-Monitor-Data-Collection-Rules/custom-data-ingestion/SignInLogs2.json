@@ -36,7 +36,7 @@
     "resources": [
         {
             "type": "microsoft.insights/dataCollectionRules",
-            "apiVersion": "2021-09-01-preview",
+            "apiVersion": "2023-03-11",
             "name": "[parameters('ruleName')]",
             "location": "[parameters('location')]",
             "tags": "[parameters('tagsArray')]",
