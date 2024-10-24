@@ -68,7 +68,7 @@
                         "destinations": [
                             "clv2ws1"
                         ],
-                        "outputStream": "Microsoft-Microsoft-GraphActivityLogs"
+                        "outputStream": "Microsoft-GraphActivityLogs"
                     }
                 ]
             }
