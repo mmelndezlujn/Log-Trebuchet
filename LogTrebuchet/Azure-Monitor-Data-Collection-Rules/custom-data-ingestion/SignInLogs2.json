@@ -43,27 +43,11 @@
             "properties": {
                 "dataCollectionEndpointId": "[parameters('dataCollectionEndpointResourceId')]",
                 "streamDeclarations": {
-                    "Custom-SignInLogs3": {
+                    "Custom-SignInLogs": {
                         "columns": [
                             {
                                 "name": "TimeGenerated",
                                 "type": "datetime"
-                            },
-                            {
-                                "name": "UserDisplayName",
-                                "type": "string"
-                            },
-                            {
-                                "name": "UserId",
-                                "type": "string"
-                            },
-                            {
-                                "name": "UserPrincipalName",
-                                "type": "string"
-                            },
-                            {
-                                "name": "UserType",
-                                "type": "string"
                             }
                         ]
                     }
@@ -79,12 +63,12 @@
                 "dataFlows": [
                     {
                         "streams": [
-                            "Custom-SignInLogs3"
+                            "Custom-SignInLogs"
                         ],
                         "destinations": [
                             "clv2ws1"
                         ],
-                        "outputStream": "Microsoft-SigninLogs"
+                        "outputStream": "Microsoft-WindowsEvent"
                     }
                 ]
             }
