@@ -69,7 +69,7 @@
                         "destinations": [
                             "clv2ws1"
                         ],
-                        "outputStream": "Microsoft-SecurityEvent"
+                        "outputStream": "Test"
                     }
                 ]
             }

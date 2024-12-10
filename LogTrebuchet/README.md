@@ -14,7 +14,7 @@ This PowerShell script downloads sample data and injects them to our sample Log 
 Azue CLI:
 
 1.  az login
-2.  az group create --name "<RGName>"
+2.  az group create --location westus --resource-group "<RGName>"
 3.  az deployment group create --resource-group "<RGName>" --template-file azuredeploy.json
 4.  Create an app (you can do this in the Azure portal) and add a secret to it (and save the secret)
 
