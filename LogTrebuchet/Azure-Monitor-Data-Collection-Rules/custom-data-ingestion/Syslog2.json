@@ -46,9 +46,9 @@
                     "Custom-Syslog": {
                         "columns": [
                             {
-                                "name": "TimeGenerated",
-                                "description": "Date and time the record was created.",
-                                "type": "datetime"
+                                "name": "test",
+                                "description": "test",
+                                "type": "string"
                             }
                         ]
                     }
